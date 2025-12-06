@@ -22,8 +22,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Sterling Oaks Golf Club | Championship Golf Experience",
-  description: "Experience championship golf on three award-winning courses designed by Robert Trent Jones II. Premium memberships, events, and world-class amenities.",
+  title: "Kimberly Archambault Photography | Wedding & Family Photographer",
+  description: "Capturing life's most precious moments with artistic vision and professional care. Specializing in weddings, maternity, and family photography.",
 };
 
 export default function RootLayout({

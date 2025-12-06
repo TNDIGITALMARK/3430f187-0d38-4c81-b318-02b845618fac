@@ -1,299 +1,232 @@
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
-import { HeroSection } from '@/components/home/HeroSection';
-import { CourseCard } from '@/components/courses/CourseCard';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Star, Award, Users, Sparkles, Trophy, Clock, MapPin } from 'lucide-react';
-
-// Mock data for MVP - will be replaced with API calls
-const courses = [
-  {
-    id: 1,
-    slug: 'heritage-course',
-    name: 'The Heritage Course',
-    tagline: 'A timeless Robert Trent Jones II masterpiece',
-    parTotal: 72,
-    yardageTotal: 7245,
-    difficultyRating: 73.5,
-    heroImageUrl: '/images/generated/heritage-course-clubhouse.png',
-    location: 'Main Campus',
-  },
-  {
-    id: 2,
-    slug: 'lakeside-course',
-    name: 'The Lakeside Course',
-    tagline: 'Spectacular lakefront golf experience',
-    parTotal: 71,
-    yardageTotal: 7120,
-    difficultyRating: 72.8,
-    heroImageUrl: '/images/generated/lakeside-course-bridge.png',
-    location: 'West Campus',
-  },
-  {
-    id: 3,
-    slug: 'ridge-course',
-    name: 'The Ridge Course',
-    tagline: 'Mountain vistas and dramatic elevation',
-    parTotal: 72,
-    yardageTotal: 6985,
-    difficultyRating: 71.5,
-    heroImageUrl: '/images/generated/ridge-course-mountain-view.png',
-    location: 'North Campus',
-  },
-];
-
-const testimonials = [
-  {
-    id: 1,
-    name: 'Michael Anderson',
-    role: 'Golf Membership',
-    quote: 'Sterling Oaks has exceeded every expectation. The courses are impeccably maintained, and the staff makes you feel like family.',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Sarah Thompson',
-    role: 'Premier Membership',
-    quote: 'From the moment I joined, I knew this was special. The attention to detail and level of service is truly world-class.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Robert Chen',
-    role: 'Golf Membership',
-    quote: 'The Heritage Course is my favorite. Every hole presents a unique challenge, and the scenery is absolutely breathtaking.',
-    rating: 5,
-  },
-];
+import Image from "next/image"
+import Link from "next/link"
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Camera, Heart, Users, Calendar } from "lucide-react"
 
 export default function HomePage() {
+  const categories = [
+    {
+      title: "Weddings",
+      description: "Timeless memories of your special day",
+      image: "/generated/wedding-hero-1.png",
+      href: "/portfolio#weddings"
+    },
+    {
+      title: "Maternity",
+      description: "Celebrating the beauty of new beginnings",
+      image: "/generated/maternity-hero-1.png",
+      href: "/portfolio#maternity"
+    },
+    {
+      title: "Family",
+      description: "Capturing the love that binds you together",
+      image: "/generated/family-hero-1.png",
+      href: "/portfolio#family"
+    }
+  ]
+
+  const testimonials = [
+    {
+      quote: "Kimberly captured our wedding day perfectly. Every photo tells a story and brings back the emotions of that beautiful day.",
+      author: "Sarah & Michael",
+      session: "Wedding 2024"
+    },
+    {
+      quote: "The maternity photos exceeded our expectations. Kimberly made us feel comfortable and the results are stunning.",
+      author: "Emma Rodriguez",
+      session: "Maternity Session"
+    },
+    {
+      quote: "Our family portraits are absolutely beautiful. Kimberly's patience with the kids and eye for detail is remarkable.",
+      author: "The Johnson Family",
+      session: "Fall Family Session"
+    }
+  ]
+
+  const services = [
+    {
+      icon: Heart,
+      title: "Wedding Photography",
+      description: "Full day coverage capturing every precious moment from getting ready to your first dance"
+    },
+    {
+      icon: Users,
+      title: "Family Sessions",
+      description: "Professional portraits that celebrate your family's unique story and connection"
+    },
+    {
+      icon: Camera,
+      title: "Maternity Photography",
+      description: "Artistic and elegant photos celebrating the beauty of expecting mothers"
+    },
+    {
+      icon: Calendar,
+      title: "Flexible Packages",
+      description: "Customizable packages designed to fit your needs and budget"
+    }
+  ]
+
   return (
     <>
-      <Header />
+      <Navigation />
 
-      <main>
-        {/* Hero Section */}
-        <HeroSection />
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/generated/wedding-hero-1.png"
+            alt="Elegant wedding photography by Kimberly Archambault"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
 
-        {/* Championship Courses Section */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                Our Championship Courses
-              </h2>
-              <div className="w-24 h-1 bg-accent mx-auto mb-6" />
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Experience world-class golf on three distinctly challenging courses, each designed to test your skills and reward precision
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {courses.map((course) => (
-                <CourseCard key={course.id} {...course} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Membership CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/generated/membership-golfers-community.png"
-              alt="Sterling Oaks Members"
-              fill
-              className="object-cover opacity-20"
-            />
-          </div>
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-              Elevate Your Game at Sterling Oaks
-            </h2>
-            <p className="text-lg mb-8 max-w-3xl mx-auto text-primary-foreground/90 leading-relaxed">
-              Join a community of passionate golfers and enjoy unparalleled access to our world-class facilities. Our memberships include priority tee times, exclusive events, access to the elite practice academy, and unforgettable experiences. Discover the privilege of belonging to Sterling Oaks Golf Club.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-8 py-6"
-            >
-              <Link href="/membership">Discover Membership Tiers</Link>
+        <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-serif font-medium mb-6 leading-tight">
+            Capturing Life's Most
+            <br />
+            Precious Moments
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-white/90 font-light">
+            Wedding, Maternity & Family Photography
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-primary hover:bg-accent text-lg px-8">
+              <Link href="/portfolio">View Portfolio</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white">
+              <Link href="/booking">Book a Session</Link>
             </Button>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Facilities Section */}
-        <section className="py-20 bg-muted">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                World-Class Facilities
-              </h2>
-              <div className="w-24 h-1 bg-accent mx-auto mb-6" />
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Every detail designed to enhance your golfing experience
-              </p>
-            </div>
+      {/* About Section */}
+      <section className="py-24 px-6 bg-background">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl md:text-5xl font-serif mb-6 animate-fade-in">
+            Artistic Vision, Professional Care
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            Hi, I'm Kimberly Archambault. I specialize in capturing authentic emotions and timeless moments
+            that tell your unique story. Whether it's your wedding day, maternity journey, or family milestones,
+            I'm here to create beautiful images you'll treasure forever.
+          </p>
+          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+            <Link href="/booking">Let's Connect</Link>
+          </Button>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <Trophy className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-serif font-semibold mb-3">Championship Courses</h3>
-                <p className="text-muted-foreground text-sm">
-                  Three award-winning courses designed by Robert Trent Jones II
-                </p>
-              </div>
+      {/* Categories Grid */}
+      <section className="py-24 px-6 bg-muted/30">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-4xl md:text-5xl font-serif text-center mb-16">
+            Photography Services
+          </h2>
 
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <Sparkles className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-serif font-semibold mb-3">Practice Facilities</h3>
-                <p className="text-muted-foreground text-sm">
-                  State-of-the-art driving range, putting greens, and short game areas
-                </p>
-              </div>
-
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <Award className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-serif font-semibold mb-3">Golf Academy</h3>
-                <p className="text-muted-foreground text-sm">
-                  Expert instruction from PGA professionals with cutting-edge technology
-                </p>
-              </div>
-
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-serif font-semibold mb-3">Clubhouse & Dining</h3>
-                <p className="text-muted-foreground text-sm">
-                  Elegant clubhouse with fine dining and private event spaces
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                What Our Members Say
-              </h2>
-              <div className="w-24 h-1 bg-accent mx-auto mb-6" />
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Join a community of passionate golfers who call Sterling Oaks home
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="bg-card p-8 rounded-lg border shadow-md hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-                    ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {categories.map((category, index) => (
+              <Link
+                key={category.title}
+                href={category.href}
+                className="photo-card group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="aspect-[4/5] relative">
+                  <Image
+                    src={category.image}
+                    alt={category.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="image-overlay">
+                    <div>
+                      <h3 className="text-2xl font-serif mb-2">{category.title}</h3>
+                      <p className="text-sm text-white/90">{category.description}</p>
+                    </div>
                   </div>
-                  <p className="text-foreground mb-6 leading-relaxed italic">
-                    &quot;{testimonial.quote}&quot;
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 px-6 bg-background">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-4xl md:text-5xl font-serif text-center mb-16">
+            What I Offer
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card key={service.title} className="border-border hover-lift">
+                <CardContent className="p-8">
+                  <service.icon className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-serif mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
                   </p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 px-6 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-4xl md:text-5xl font-serif text-center mb-16">
+            Kind Words from Clients
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-border">
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <svg className="w-8 h-8 text-primary/20" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
                   </div>
-                </div>
-              ))}
-            </div>
+                  <p className="text-muted-foreground mb-6 leading-relaxed italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="border-t border-border pt-4">
+                    <p className="font-medium text-foreground">{testimonial.author}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.session}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Stats Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div className="space-y-2">
-                <div className="text-5xl md:text-6xl font-bold text-accent">30+</div>
-                <div className="text-sm md:text-base text-primary-foreground/90">Years of Excellence</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-5xl md:text-6xl font-bold text-accent">500+</div>
-                <div className="text-sm md:text-base text-primary-foreground/90">Member Families</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-5xl md:text-6xl font-bold text-accent">15+</div>
-                <div className="text-sm md:text-base text-primary-foreground/90">Tournament Championships</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-5xl md:text-6xl font-bold text-accent">75K+</div>
-                <div className="text-sm md:text-base text-primary-foreground/90">Rounds Played Annually</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Quick Links Section */}
-        <section className="py-20 bg-muted">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Events */}
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                  <Clock className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-serif font-semibold mb-4">Events Calendar</h3>
-                <p className="text-muted-foreground mb-6">
-                  Join us for tournaments, clinics, and exclusive member events throughout the year.
-                </p>
-                <Button asChild variant="outline">
-                  <Link href="/events">View Events</Link>
-                </Button>
-              </div>
-
-              {/* Academy */}
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                  <Award className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-serif font-semibold mb-4">Golf Academy</h3>
-                <p className="text-muted-foreground mb-6">
-                  Improve your game with our PGA professionals and state-of-the-art training facilities.
-                </p>
-                <Button asChild variant="outline">
-                  <Link href="/academy">Learn More</Link>
-                </Button>
-              </div>
-
-              {/* Contact */}
-              <div className="bg-card p-8 rounded-lg border text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-serif font-semibold mb-4">Visit Us</h3>
-                <p className="text-muted-foreground mb-6">
-                  Schedule a tour or contact us to learn more about membership opportunities.
-                </p>
-                <Button asChild variant="outline">
-                  <Link href="/contact">Contact Us</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+      {/* CTA Section */}
+      <section className="py-24 px-6 bg-gradient-sage text-white">
+        <div className="container mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl md:text-5xl font-serif mb-6">
+            Ready to Create Beautiful Memories?
+          </h2>
+          <p className="text-xl mb-8 text-white/90">
+            Let's discuss your vision and create stunning images you'll cherish forever.
+          </p>
+          <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8">
+            <Link href="/booking">Book Your Session</Link>
+          </Button>
+        </div>
+      </section>
 
       <Footer />
     </>
-  );
+  )
 }

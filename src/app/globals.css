@@ -5,56 +5,56 @@ All colors MUST be HSL.
 */
 
 :root {
-  /* Premium golf club color palette */
-  /* Off-white background with charcoal text */
-  --background: 40 20% 97%;
-  --foreground: 0 0% 15%;
+  /* Elegant photography portfolio color palette */
+  /* Warm white background with charcoal text */
+  --background: 30 15% 98%;
+  --foreground: 0 0% 20%;
 
   /* Clean white cards with charcoal text */
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 15%;
+  --card-foreground: 0 0% 20%;
 
   /* Popovers with white background */
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 15%;
+  --popover-foreground: 0 0% 20%;
 
-  /* Primary: Deep forest green with white text */
-  --primary: 155 30% 25%;
+  /* Primary: Sage green with white text */
+  --primary: 145 25% 45%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Gold/champagne accent */
-  --secondary: 45 65% 60%;
-  --secondary-foreground: 0 0% 15%;
+  /* Secondary: Soft blush/warm accent */
+  --secondary: 25 30% 85%;
+  --secondary-foreground: 0 0% 20%;
 
-  /* Muted: Light green-gray with darker text */
-  --muted: 155 15% 92%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted: Light warm gray with darker text */
+  --muted: 30 10% 93%;
+  --muted-foreground: 0 0% 45%;
 
-  /* Accent: Gold for highlights */
-  --accent: 45 75% 55%;
-  --accent-foreground: 0 0% 15%;
+  /* Accent: Sage green for highlights */
+  --accent: 145 30% 50%;
+  --accent-foreground: 0 0% 100%;
 
   /* Destructive: Elegant red */
   --destructive: 0 65% 48%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Soft neutral */
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 155 30% 25%;
+  /* Borders: Soft neutral with warmth */
+  --border: 30 8% 90%;
+  --input: 30 8% 90%;
+  --ring: 145 25% 45%;
 
-  /* Slightly more rounded for elegance */
+  /* Elegant rounded corners */
   --radius: 0.5rem;
 
-  /* Sidebar: Clean white with black text */
+  /* Sidebar: Clean white with dark text */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --sidebar-foreground: 0 0% 20%;
+  --sidebar-primary: 145 25% 45%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-accent: 30 10% 96%;
+  --sidebar-accent-foreground: 0 0% 20%;
+  --sidebar-border: 30 8% 92%;
+  --sidebar-ring: 145 25% 45%;
 }
 
 .dark {
@@ -178,7 +178,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Premium golf club typography */
+/* Elegant photography typography */
 .font-sans {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
@@ -189,9 +189,60 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), ui-serif, Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   color: hsl(var(--foreground));
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: hsl(var(--foreground));
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+
+a:hover {
+  color: hsl(var(--accent));
 }
 
 /* Clean button styles */
@@ -282,11 +333,62 @@ img {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Premium gradient backgrounds */
-.gradient-gold {
-  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--secondary)) 100%);
+/* Elegant gradient backgrounds */
+.gradient-sage {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(145 30% 50%) 100%);
 }
 
-.gradient-green {
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(155 35% 30%) 100%);
+.gradient-warm {
+  background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(30 20% 90%) 100%);
+}
+
+/* Photography-specific image treatments */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Elegant overlay for text on images */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Responsive typography for mobile */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
 }
