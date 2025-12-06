@@ -392,3 +392,18 @@ img {
   h4 { font-size: 1.5rem; }
   h5 { font-size: 1.25rem; }
 }
+
+/* White text utility class for dark backgrounds */
+.text-white-force {
+  color: white !important;
+}
+
+.text-white-force h1,
+.text-white-force h2,
+.text-white-force h3,
+.text-white-force h4,
+.text-white-force h5,
+.text-white-force h6,
+.text-white-force p {
+  color: white !important;
+}

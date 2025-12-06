@@ -86,13 +86,13 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto animate-fade-in-up">
+        <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto animate-fade-in-up text-white-force">
           <h1 className="text-5xl md:text-7xl font-serif font-medium mb-6 leading-tight">
             Capturing Life's Most
             <br />
             Precious Moments
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 font-light">
+          <p className="text-xl md:text-2xl mb-8 font-light">
             Wedding, Maternity & Family Photography
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -145,10 +145,10 @@ export default function HomePage() {
                     fill
                     className="object-cover"
                   />
-                  <div className="image-overlay">
+                  <div className="image-overlay text-white-force">
                     <div>
                       <h3 className="text-2xl font-serif mb-2">{category.title}</h3>
-                      <p className="text-sm text-white/90">{category.description}</p>
+                      <p className="text-sm">{category.description}</p>
                     </div>
                   </div>
                 </div>
