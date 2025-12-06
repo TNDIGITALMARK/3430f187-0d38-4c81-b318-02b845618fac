@@ -35,7 +35,7 @@ export function Navigation() {
               </Link>
             ))}
             <Button asChild size="sm" className="bg-primary hover:bg-accent">
-              <Link href="/booking">Contact</Link>
+              <Link href="/booking" className="button-text-white">Contact</Link>
             </Button>
           </div>
 
@@ -64,7 +64,7 @@ export function Navigation() {
                 </Link>
               ))}
               <Button asChild className="bg-primary hover:bg-accent mt-2">
-                <Link href="/booking" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/booking" onClick={() => setMobileMenuOpen(false)} className="button-text-white">
                   Contact
                 </Link>
               </Button>

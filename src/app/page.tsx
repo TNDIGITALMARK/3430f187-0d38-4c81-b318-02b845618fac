@@ -97,10 +97,10 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-primary hover:bg-accent text-lg px-8">
-              <Link href="/portfolio">View Portfolio</Link>
+              <Link href="/portfolio" className="button-text-white">View Portfolio</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white">
-              <Link href="/booking">Book a Session</Link>
+              <Link href="/booking" className="button-text-white">Book a Session</Link>
             </Button>
           </div>
         </div>

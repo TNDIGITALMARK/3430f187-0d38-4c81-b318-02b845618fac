@@ -407,3 +407,8 @@ img {
 .text-white-force p {
   color: white !important;
 }
+
+/* White text class for button content only */
+.button-text-white {
+  color: white !important;
+}
