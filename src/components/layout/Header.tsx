@@ -26,9 +26,9 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-end h-10 text-sm">
             <div className="flex items-center gap-6">
-              <a href="tel:555-867-5100" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href="tel:912-256-6689" className="flex items-center gap-2 hover:text-accent transition-colors">
                 <Phone className="h-4 w-4" />
-                <span>(555) 867-5100</span>
+                <span>(912) 256-6689</span>
               </a>
               <Link href="/login" className="hover:text-accent transition-colors">
                 Member Login

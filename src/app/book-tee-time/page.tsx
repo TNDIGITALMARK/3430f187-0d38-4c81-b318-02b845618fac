@@ -23,11 +23,11 @@ export default function BookTeeTimePage() {
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <h2 className="text-3xl font-serif font-bold mb-6">Online Booking Coming Soon</h2>
             <p className="text-muted-foreground mb-8">
-              Our online tee time booking system is currently being developed. In the meantime, please call us at <a href="tel:555-867-5100" className="text-primary font-semibold">(555) 867-5100</a> to reserve your tee time.
+              Our online tee time booking system is currently being developed. In the meantime, please call us at <a href="tel:912-256-6689" className="text-primary font-semibold">(912) 256-6689</a> to reserve your tee time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <a href="tel:555-867-5100">Call to Book</a>
+                <a href="tel:912-256-6689">Call to Book</a>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="/contact">Contact Us</Link>

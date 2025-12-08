@@ -216,10 +216,10 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold mb-1">Phone</h3>
                       <a
-                        href="tel:555-867-5100"
+                        href="tel:912-256-6689"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        (555) 867-5100
+                        (912) 256-6689
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
                         Mon-Sun: 7:00 AM - 8:00 PM
